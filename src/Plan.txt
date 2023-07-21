@@ -1,0 +1,17 @@
+// 1. Create API services.
+
+2. Create Components
+    (00) Snackbar with Pinia (Do this next)
+    (a) PostsLists
+    (b) PostView
+    (c) CommentsList
+    (d) CommentsPreview
+    (f) SearchBox
+    (g?) Pagination
+
+3. Create Composables
+    (a) useNetwork
+
+3. Setup Global Loader (Pinia)
+
+4.  
