@@ -1,13 +1,14 @@
-import API_URLS from '../urls'
+import API_URLS from '../apiUrls'
 import type { Post } from './types'
 import { BaseAPIService } from '../base.service'
 
-class PostsAPIService extends BaseAPIService {
+export class PostsAPIService extends BaseAPIService {
   constructor() {
     super(API_URLS.posts)
   }
 
   async getAllPosts() {
+    console.log('This', this)
     return this.axiosCall<Post[]>({ method: 'get' })
   }
 }

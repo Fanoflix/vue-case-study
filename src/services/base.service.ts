@@ -10,6 +10,10 @@ export class BaseAPIService {
     })
   }
 
+  getAxiosInstance() {
+    return this.axiosInstance
+  }
+
   async axiosCall<T>(requestConfig: AxiosRequestConfig): Promise<APIResponse<T>> {
     try {
       const { data, headers } = await this.axiosInstance.request<T>(requestConfig)

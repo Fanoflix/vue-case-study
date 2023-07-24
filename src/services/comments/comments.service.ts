@@ -1,4 +1,4 @@
-import API_URLS from '../urls'
+import API_URLS from '../apiUrls'
 import { BaseAPIService } from '../base.service'
 import type { Comment } from './types'
 
