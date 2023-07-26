@@ -2,33 +2,33 @@
 * @Global attributes color variables for use in components
 */
 $global-padding: 8px;
-$global-border-size: 1px;
-$global-border-radius: 0px;
-$global-aesthetic-margin: 10px;
+$global-slight-padding: 3px;
+$global-border-radius: 5px;
+$global-aesthetic-margin: 15px;
 
-$center-content-width: 765px;
+$center-content-width: 475px;
 $phone-center-content-width: 91%;
 
 // Global transition variables
 $body-theme-bg-trans: 0s;
 $text-and-bg-trans-time: 0s;
-$element-trans-time: 0s;
+$element-trans-time: 0.125s;
 
 /*
 * @Color Palette color variables for use in components
 */
 $gray: #fafafa;
-$primary: #e8e8e8;
+$primary: #1b202a;
 $primary-2: rgb(24, 24, 24);
-$secondary-light: #d5d5d5;
-$secondary-dark: #373737;
+$secondary-light: #2b3140;
+$secondary-dark: rgb(87, 112, 153);
 
-$danger: #92304a;
+$danger: #682728;
+$error: #af3739;
+$warn: #946a2a;
 $important: #005fa7;
-
 $success-light: #3db600;
-$success-dark: #61c998;
-$error: #c0304f;
+$success-dark: #256044;
 
 $white: #ffffff;
 $white-soft: #e6e6e6;

@@ -10,6 +10,15 @@ class CommentsAPIService extends BaseAPIService {
   async getAllComments() {
     return this.axiosCall<Comment[]>({ method: 'get' })
   }
+
+  async getCommentsByPostId(postId: number) {
+    return this.axiosCall<Comment[]>({
+      method: 'get',
+      params: {
+        postId
+      }
+    })
+  }
 }
 
 const commentsAPIService = new CommentsAPIService()

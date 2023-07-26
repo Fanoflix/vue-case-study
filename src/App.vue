@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import APP_ROUTES from '@/router/appRoutes'
+import AppLayout from '@/layouts/AppLayout.vue'
+import NetworkConnectivityNotification from '@/components/NetworkConnectivityNotification.vue'
+import SnackbarNotification from './components/SnackbarNotification.vue'
 
 const body: HTMLElement | null = document.querySelector('body')
 body?.classList.add('dark')
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink :to="APP_ROUTES.HOME.path">{{ APP_ROUTES.HOME.name }}</RouterLink>
-        <RouterLink :to="APP_ROUTES.POSTS.path">{{ APP_ROUTES.POSTS.name }}</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <NetworkConnectivityNotification />
+  <SnackbarNotification />
+  <AppLayout />
 </template>
 
 <style lang="scss">

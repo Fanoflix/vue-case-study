@@ -128,7 +128,7 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     &.dark {
@@ -163,6 +163,19 @@
         color: white;
         background: transparent;
       }
+    }
+  }
+
+  button {
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: $secondary-dark;
+    padding: $global-slight-padding;
+    border-radius: $global-border-radius;
+
+    &:hover {
+      background-color: $primary;
     }
   }
 

@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import applicationConfig from '@/config/application'
 import { ref } from 'vue'
 
-interface CommentsPreviewProps {
-  foo: string
-  bar?: number
+interface PostDetailedViewProps {
+  title: string
+  body: string
 }
 
 /**
  * @props
  */
-const props = defineProps<CommentsPreviewProps>()
+const props = defineProps<PostDetailedViewProps>()
 
 /**
  * @state

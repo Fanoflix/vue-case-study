@@ -9,9 +9,5 @@
     (f) SearchBox
     (g?) Pagination
 
-3. Create Composables
-    (a) useNetwork (navigator.onLine + something complex if you find the time)
-
-3. Setup Global Loader (Pinia)
-
-4.  
+//3. Create Composables
+  //  (a) useNetwork (navigator.onLine + something complex if you find the time)

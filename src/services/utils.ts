@@ -3,4 +3,7 @@ export type ResponseInfo = {
   code?: number
 }
 
-export type APIResponse<U> = [null, U, ResponseInfo?] | [Error, ResponseInfo?]
+export type APIResponse<Data> = {
+  data: Data
+  info: ResponseInfo
+}

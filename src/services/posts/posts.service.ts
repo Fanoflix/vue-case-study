@@ -8,8 +8,15 @@ export class PostsAPIService extends BaseAPIService {
   }
 
   async getAllPosts() {
-    console.log('This', this)
     return this.axiosCall<Post[]>({ method: 'get' })
+  }
+
+  async getPostById(postId: number) {
+    return this.axiosCall<Post>({ method: 'get', url: `/${postId}` })
+  }
+
+  async getPostsByUserId(userId: number) {
+    return this.axiosCall<Post[]>({ method: 'get', params: { userId } })
   }
 }
 
