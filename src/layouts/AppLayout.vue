@@ -4,14 +4,6 @@ import APP_ROUTES from '@/router/appRoutes'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink :to="APP_ROUTES.POSTS.path">{{ APP_ROUTES.POSTS.name }}</RouterLink>
-      </nav>
-    </div>
-  </header>
-
   <section id="current-view">
     <RouterView v-slot="{ Component }">
       <Transition name="fade" mode="out-in">

@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { type Comment } from '@/services/comments/types'
 import TheComment from '@/components/Comments/TheComment.vue'
-import { useAsync } from '@/composables'
+import { useAsync, useNetwork } from '@/composables'
 import commentsAPIService from '@/services/comments/comments.service'
 import { useRoute, type RouteParams } from 'vue-router'
 import postsAPIService from '@/services/posts/posts.service'
@@ -10,6 +10,7 @@ import type { Post } from '@/services/posts/types'
 import APP_ROUTES from '@/router/appRoutes'
 import { SnackbarTypes, useSnackbarStore } from '@/stores/snackbar'
 const { showSnackbar } = useSnackbarStore()
+const { isOnline } = useNetwork()
 
 const route = useRoute()
 
@@ -76,6 +77,14 @@ watch(errorMessage, (newErrorMessage) => {
 
   if (newErrorMessage) showSnackbar(newErrorMessage, SnackbarTypes.danger)
 })
+
+watch(isOnline, (updatedOnline) => {
+  if (updatedOnline) {
+    // re-fetch on coming back online
+    !post.value && fetchPostById()
+    !comments.value && fetchCommentsByPostId()
+  }
+})
 </script>
 
 <template>
@@ -84,6 +93,8 @@ watch(errorMessage, (newErrorMessage) => {
     <button class="go-back-button pointer" @click.prevent="$router.push(APP_ROUTES.POSTS.path)">
       &#8592; Go back to feed
     </button>
+
+    <h1 class="post-view-page-title">Post</h1>
 
     <div class="post-container">
       <h4 class="post-preview-title">{{ post?.title }}</h4>
@@ -108,6 +119,10 @@ watch(errorMessage, (newErrorMessage) => {
 
 <style lang="scss" scoped>
 @import '@assets/variables.scss';
+
+.post-view-page-title {
+  margin-bottom: $global-aesthetic-margin;
+}
 
 .preview-container {
   width: $center-content-width;

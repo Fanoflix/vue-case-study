@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useNetwork } from '@/composables'
-import { computed, onUnmounted, ref, watch } from 'vue'
-import applicationConfig from '@/config/application'
-import { errorMessages } from '@/config/constants'
 import { useSnackbarStore } from '@/stores/snackbar'
 import { storeToRefs } from 'pinia'
 

@@ -3,7 +3,7 @@ import PostPreview from '@/components/Post/PostPreview.vue'
 import { useAsync, useNetwork } from '@/composables'
 import postsAPIService from '@/services/posts/posts.service'
 import type { Post } from '@/services/posts/types'
-import { onMounted, watch } from 'vue'
+import { watch } from 'vue'
 import { SnackbarTypes, useSnackbarStore } from '@/stores/snackbar'
 import type { CustomApiErrorResponse } from '@/composables/useAsync'
 
@@ -13,11 +13,11 @@ const { isOnline } = useNetwork()
 const {
   data: posts,
   isLoading,
-  run: getPosts,
+  run: fetchAllPosts,
   error
 } = useAsync<Post[]>(async () => await postsAPIService.getAllPosts())
 
-getPosts()
+fetchAllPosts()
 
 /**
  * @watchers
@@ -27,14 +27,15 @@ watch(error, (newError: CustomApiErrorResponse) => {
 })
 
 watch(isOnline, (updatedOnline) => {
-  if (updatedOnline) getPosts()
+  // re-fetch on coming back online
+  if (updatedOnline && !posts.value) fetchAllPosts()
 })
 </script>
 
 <template>
   <div v-if="isLoading">Loading feed...</div>
   <section v-else class="posts-list">
-    <h1>User Posts</h1>
+    <h1 class="post-lists-page-title">Feed</h1>
 
     <PostPreview
       v-for="post in posts"
@@ -46,4 +47,10 @@ watch(isOnline, (updatedOnline) => {
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import '@assets/variables.scss';
+
+.post-lists-page-title {
+  margin-bottom: $global-aesthetic-margin;
+}
+</style>

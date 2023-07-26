@@ -1,11 +1,11 @@
 import PostView from '@/views/Posts/PostView.vue'
-import PostsLists from '@/views/Posts/PostsLists.vue'
+import PostsList from '@/views/Posts/PostsList.vue'
 
 const APP_ROUTES = Object.freeze({
   POSTS: {
     path: '/',
     name: 'Feed',
-    component: PostsLists
+    component: PostsList
   },
   POST_VIEW: {
     path: '/post/:id',
