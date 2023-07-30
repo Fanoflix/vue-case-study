@@ -25,7 +25,6 @@ export type CustomApiErrorResponse = {
 const useAsync = <Data>(callback: () => Promise<APIResponse<Data>>): UseAsyncReturn<Data> => {
   if (!callback) {
     throw new Error('useAsync composable call is missing callback function!')
-    return
   }
 
   const data = ref<Data | null>(null)

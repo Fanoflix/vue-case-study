@@ -45,7 +45,7 @@ const applicationConfig = Object.freeze<ApplicationConfiguration>({
   CLIPPED_BODY_CONTENT_LENGTH: 60,
   NETWORK_CONNECTIVITY_NOTIFICATION_FADE_TIMEOUT: 1500,
   SNACKBAR_NOTIFICATION_FADE_TIMEOUT: 5500,
-  DEFAULT_SNACKBAR_TYPE: 'success'
+  DEFAULT_SNACKBAR_TYPE: SnackbarTypes.success
 })
 
 export default applicationConfig

@@ -15,13 +15,7 @@ export class BaseAPIService {
   }
 
   async axiosCall<T>(requestConfig: AxiosRequestConfig): Promise<APIResponse<T>> {
-    // try {
     const { data, headers, status } = await this.axiosInstance.request<T>(requestConfig)
     return { data, info: { headers, code: status } }
-    // } catch (error: any) {
-    //   console.error(error)
-    //   // Log error to a logging service
-    //   return error
-    // }
   }
 }

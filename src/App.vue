@@ -14,8 +14,6 @@ body?.classList.add('dark')
 </template>
 
 <style lang="scss">
-@import '@assets/variables.scss';
 @import '@assets/base-styling.scss';
-@import '@assets/screens.scss';
 @include base-styling;
 </style>

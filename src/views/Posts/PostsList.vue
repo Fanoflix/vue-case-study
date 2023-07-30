@@ -3,7 +3,7 @@ import PostPreview from '@/components/Post/PostPreview.vue'
 import { useAsync, useNetwork } from '@/composables'
 import postsAPIService from '@/services/posts/posts.service'
 import type { Post } from '@/services/posts/types'
-import { watch } from 'vue'
+import { watch, type Ref } from 'vue'
 import { SnackbarTypes, useSnackbarStore } from '@/stores/snackbar'
 import type { CustomApiErrorResponse } from '@/composables/useAsync'
 
@@ -22,7 +22,7 @@ fetchAllPosts()
 /**
  * @watchers
  */
-watch(error, (newError: CustomApiErrorResponse) => {
+watch(error as Ref<CustomApiErrorResponse>, (newError: CustomApiErrorResponse) => {
   if (newError) showSnackbar(newError.message, SnackbarTypes.danger)
 })
 

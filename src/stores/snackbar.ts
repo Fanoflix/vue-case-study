@@ -27,9 +27,10 @@ export const useSnackbarStore = defineStore('snackbar', () => {
   let snackbarNotificationTimeout: number | undefined
 
   const closeSnackbarWithDelay = () => {
-    snackbarNotificationTimeout = setTimeout(() => {
-      $reset()
-    }, applicationConfig.SNACKBAR_NOTIFICATION_FADE_TIMEOUT)
+    snackbarNotificationTimeout = setTimeout(
+      () => $reset(),
+      applicationConfig.SNACKBAR_NOTIFICATION_FADE_TIMEOUT
+    )
   }
 
   const $reset = () => {
